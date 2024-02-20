@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}*
+.developer_reviews{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profiles{
+    height: 200px;
+    width: 300px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    /* background-color: bisque; */
+    margin-bottom:  5px;
+    /* border: 2px gray solid; */
+    border-radius: 2px;
+    box-shadow: 5px 5px 5px 5px  lightgray;
+}
+.description img{
+    width: 70px;
+    border-radius: 45px;
+    text-align: center;
+    
+}
+.profiles p{
+    font-size: 15px;
+}

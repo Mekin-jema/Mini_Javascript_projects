@@ -1,0 +1,23 @@
+*{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}*
+ #reset,#increase,#decrease{
+    margin-right: 5px;
+    background-color: rgb(95, 75, 75);
+    font-size: 15px;
+    border-radius: 5px;
+    border-width: 1px;
+    margin-top: 0px;
+    cursor: pointer;
+}
+.header{
+    font-size: 30px;
+    /* width: 20px; */
+}
+.counter{
+    font-size: 40px;
+}
