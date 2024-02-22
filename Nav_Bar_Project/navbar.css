@@ -67,6 +67,8 @@ nav{
     width: 90%;
 
 }
-/* @media screen and (min-width:800px){
-
-} */
+ @media screen and (min-width:800px){
+  .nav-center{
+    
+  }
+} 
