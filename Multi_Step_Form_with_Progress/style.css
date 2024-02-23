@@ -54,6 +54,8 @@ input{
     transform: translateY(-50%);
     height: 4px;
     width: 100%;
+    /* text-align: center;
+    align-items: center; */
     background-color: #dcdcdc;
 }
 .progress{
@@ -138,4 +140,16 @@ label{
 }
 .form-step{
     display:none;
+    transform-origin: top;
+    animation-duration: animate 0.5s;
 }
+@keyframes animate{
+    from{
+        transform: scale(1,0);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1,1);
+        opacity: 1;
+    }}
+
