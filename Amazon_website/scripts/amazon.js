@@ -1,4 +1,5 @@
-let cart=[];
+import {cart}from '../data/cart.js'
+import{products} from'../data/products.js'
 //Here is the first step  (saving data)
 // the list and array of the following are sample of dataStructu
   let productsHtml='';
@@ -59,12 +60,8 @@ let cart=[];
       </div>`
     }
     )
-    // console.log( productsHtml)
-    productsGrid.innerHTML= productsHtml
-    document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
-      button.addEventListener('click',()=>{
-        const productID=button.dataset.productId;
-        
+
+    function addToCart(productID){
       let matchingItem;
       cart.forEach((item)=>{
         if (productID===item.productID){
@@ -80,16 +77,26 @@ let cart=[];
         })
        }
        
-            let totalCartQuantity=document.querySelector('.cart-quantity')
+    }
+    function countCartQuantity(){
+      let totalCartQuantity=document.querySelector('.cart-quantity')
+      // console.log(cart)
+     //  console.log("added product")
+      let cartQuantity=0
+  
+      cart.forEach((item)=>{
+       cartQuantity += item.quantity// becareful while using cases the object items elements are case sensitive
+       totalCartQuantity.innerHTML=cartQuantity
        // console.log(cart)
-      //  console.log("added product")
-       let cartQuantity=0
-   
-       cart.forEach((item)=>{
-        cartQuantity += item.quantity// becareful while using cases the object items elements are case sensitive
-        totalCartQuantity.innerHTML=cartQuantity
-        // console.log(cart)
-      })
+     })
+    }
+    // console.log( productsHtml)
+    productsGrid.innerHTML= productsHtml
+    document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+      button.addEventListener('click',()=>{
+        const productID=button.dataset.productId;
+        addToCart(productID)
+        countCartQuantity()
       // console.log(cartQuantity)
     })
       //it is not good practice to use product name as dataset because in the 
