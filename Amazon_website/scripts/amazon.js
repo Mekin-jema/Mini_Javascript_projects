@@ -63,25 +63,35 @@ let cart=[];
     productsGrid.innerHTML= productsHtml
     document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
       button.addEventListener('click',()=>{
-       const productID=button.dataset.productId;
-
+        const productID=button.dataset.productId;
+        
       let matchingItem;
-       cart.forEach((item)=>{
+      cart.forEach((item)=>{
         if (productID===item.productID){
             matchingItem=item
-        }
+          }
        });
        if(matchingItem){
-          matchingItem.quantity += 1
-       }else{
-        cart.push({
-          productID:productID,
+         matchingItem.quantity += 1
+        }else{
+          cart.push({
+            productID:productID,
           quantity:1
         })
        }
-       console.log(cart)
-        // console.log("added product")
+       
+            let totalCartQuantity=document.querySelector('.cart-quantity')
+       // console.log(cart)
+      //  console.log("added product")
+       let cartQuantity=0
+   
+       cart.forEach((item)=>{
+        cartQuantity += item.quantity// becareful while using cases the object items elements are case sensitive
+        totalCartQuantity.innerHTML=cartQuantity
+        // console.log(cart)
       })
+      // console.log(cartQuantity)
+    })
       //it is not good practice to use product name as dataset because in the 
       //e-commerce there maybe same name of product with different feature to 
       //solve this problem,we use ID that identify each products uniquely
