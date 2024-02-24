@@ -3,7 +3,7 @@ const nextBtns = document.querySelectorAll('.btn-next');
 const progress = document.getElementById('progress'); // Fix: Removed the dot before 'progress'
 const formSteps = document.querySelectorAll('.form-step');
 progressSteps=document.querySelectorAll('.progress-step')
-console.log(progressSteps)
+// console.log(progressSteps)
 
 let formStepsNum = 0;
 
@@ -26,7 +26,8 @@ preBtns.forEach(btn => {
 
 function updateFormSteps() {
     formSteps.forEach(formStep => {
-        formStep.classList.contains('active') && formStep.classList.remove('active');
+        formStep.classList.contains('active')
+         && formStep.classList.remove('active');
     });
     formSteps[formStepsNum].classList.add('active');
 }

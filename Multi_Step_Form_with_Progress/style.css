@@ -44,34 +44,35 @@ input{
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin: 2rem  0 4rem 0;
+    margin: 2rem  0  4rem 0;
     counter-reset: step;
 }
 .progressbar::before, .progress{
     content: "";
     position: absolute;
-    top: 60%;
+    top: 50%;
     transform: translateY(-50%);
     height: 4px;
     width: 100%;
-    /* text-align: center;
-    align-items: center; */
+    text-align: center;
+    align-items: center;
     background-color: #dcdcdc;
 }
 .progress{
+
     background-color: green;
-    width: 10px;
+    width: 0px;
     transition: 0.3s ease-in-out
 }
 .progress-step{
-    width: 35px;
-    height: 35px;
+    width: 34px;
+    height: 34px;
     background-color: #dcdcdc;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 0;
     
 }
 
@@ -83,10 +84,11 @@ input{
    content: attr(data-title); 
    position: absolute;
    top: calc(100% + 0.5rem);
+   font-size: 0.8rem;
 }
 .progress-step.active{
     background-color: green;
-    color: white;
+    color: rgb(78, 69, 69)
 }
 label{
     display: block;
