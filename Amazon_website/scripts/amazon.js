@@ -1,4 +1,4 @@
-
+let cart=[];
 //Here is the first step  (saving data)
 // the list and array of the following are sample of dataStructu
   let productsHtml='';
@@ -25,7 +25,7 @@
 
       <div class="product-price">
       $${
-          (product.priceCount/100).toFixed(2)
+          (product.priceCents/100).toFixed(2)
       }
       </div>
 
@@ -51,7 +51,9 @@
         Added
       </div>
 
-      <button class="add-to-cart-button button-primary">
+      <button class="add-to-cart-button 
+      button-primary js-add-to-cart"
+       data-product-id= "${product.id}">
         Add to Cart
       </button>
       </div>`
@@ -59,3 +61,28 @@
     )
     // console.log( productsHtml)
     productsGrid.innerHTML= productsHtml
+    document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+      button.addEventListener('click',()=>{
+       const productID=button.dataset.productId;
+
+      let matchingItem;
+       cart.forEach((item)=>{
+        if (productID===item.productID){
+            matchingItem=item
+        }
+       });
+       if(matchingItem){
+          matchingItem.quantity += 1
+       }else{
+        cart.push({
+          productID:productID,
+          quantity:1
+        })
+       }
+       console.log(cart)
+        // console.log("added product")
+      })
+      //it is not good practice to use product name as dataset because in the 
+      //e-commerce there maybe same name of product with different feature to 
+      //solve this problem,we use ID that identify each products uniquely
+    })
