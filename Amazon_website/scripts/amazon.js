@@ -1,5 +1,6 @@
 import {cart}from '../data/cart.js'
 import{products} from'../data/products.js'
+import { formatCurrency } from './utils/money.js';
 //Here is the first step  (saving data)
 // the list and array of the following are sample of dataStructu
   let productsHtml='';
@@ -26,7 +27,7 @@ import{products} from'../data/products.js'
 
       <div class="product-price">
       $${
-          (product.priceCents/100).toFixed(2)
+          formatCurrency(product.priceCents)
       }
       </div>
 
