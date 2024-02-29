@@ -3,7 +3,7 @@ const start_btn=document.querySelector('.startBtn')
 const reset_btn=document.querySelector('.resetBtn')
 const stop_btn=document.querySelector('.stopBtn')
 const display=document.querySelector('.display')
-console.log("flsnflfs")
+// console.log("flsnflfs")
 
 
 let timer=null
