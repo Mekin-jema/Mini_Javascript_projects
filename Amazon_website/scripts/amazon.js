@@ -62,23 +62,23 @@ import { formatCurrency } from './utils/money.js';
     }
     )
 
-    // function addToCart(productID){
-    //   let matchingItem;
-    //   cart.forEach((item)=>{
-    //     if (productID===item.productID){
-    //         matchingItem=item
-    //       }
-    //    });
-    //    if(matchingItem){
-    //      matchingItem.quantity += 1
-    //     }else{
-    //       cart.push({
-    //         productID:productID,
-    //       quantity:1
-    //     })
-    //    }
+    function addToCart(productID){
+      let matchingItem;
+      cart.forEach((item)=>{
+        if (productID===item.productID){
+            matchingItem=item
+          }
+       });
+       if(matchingItem){
+         matchingItem.quantity += 1
+        }else{
+          cart.push({
+            productID:productID,
+          quantity:1
+        })
+       }
        
-    // }
+    }
     function countCartQuantity(){
       let totalCartQuantity=document.querySelector('.cart-quantity')
       // console.log(cart)
