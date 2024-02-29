@@ -1,4 +1,4 @@
-# Mekinjemal's Code Portfolio
+
 
 ## Introduction
 Welcome to my coding universe! I'm Mekinjemal, a passionate developer who loves to explore the world of JavaScript. Here, you'll find a collection of my coding adventures, ranging from simple snippets to complex projects. Dive in and explore the magic of my code.
