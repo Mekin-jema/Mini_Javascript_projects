@@ -72,25 +72,46 @@ let startPositionId
 function dragStart(e){
     startPositionId=e.target.parentNode.getAttribute('square-id')
     draggedElement=e.target
+    // console.log('dragstart',e.target)//used to analyze the function of this code 
 }
 
 function dragOver(e){
     e.preventDefault()
-    // console.log(e.target)
+    // console.log("dragover",e.target)
 }
 function dragDrop(e){
     e.stopPropagation()
-    console.log('playerGO',playerGo)
-    console.log('e.target',e.target)
+    // console.log('dragdrop',e.target)
+    // console.log('playerGO',playerGo)
+    // console.log('e.target',e.target)
     const taken=e.target.classList.contains('piece')
+    const valid=checkIfValid(e.target)
     const correctGo=draggedElement.firstChild.classList.contains(playerGo)
     const opponentGO=playerGo==='white'?'black':'white'
+    // console.log('OpponentGo',opponentGO)
     const takenByOpponent=e.target.firstChild?.classList.contains(opponentGO)
+    if(correctGo){
+        //must check this first
+        if(takenByOpponent&&valid){
+
+            e.target.parentNode.append(draggedElement)
+            e.target.remove()
+            changePlayer()
+            return
+        }
+        // then check this
+        if(taken&&!takenByOpponent){
+            infoDisplay.textContent="you can not go here !"
+            setTimeout(()=>infoDisplay.textContent="",2000)
+        }
+        if (valid){
+
+            e.target.append(draggedElement)
+            changePlayer()
+            return
+        }
+    }
     // console.log(e.target)
-    // e.target.parentNode.append(draggedElement)
-    // e.target.append(draggedElement)
-    // e.target.remove()
-    changePlayer()
 
 }
 
@@ -120,4 +141,26 @@ function revertIdsBack(){
         square.setAttribute('square-id',i)
     })
 
+}
+function checkIfValid(target){
+    const targetId=Number(target.getAttribute('square-id'))|| Number(target.parentNode.getAttribute('square-id'))
+    const startId=Number(startPositionId)
+    const piece=draggedElement.id
+    console.log("targetID",targetId)
+    console.log("startID",startId)
+    console.log("piece",piece)
+   
+    switch (piece) {
+        case 'pawn':
+            const starterRow = [8, 9, 10, 11, 12, 13, 14, 15];
+            if (starterRow.includes(startId) && startId + width * 2 === targetId||
+            startId+width===targetId||
+            startId+width-1===targetId && document.querySelector('[square-id="${kvvvh}"]')
+            ) 
+            {
+                return true
+            }
+           
+            // break;
+    }
 }
